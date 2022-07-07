@@ -2955,6 +2955,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   });
   loadAssets();
   var level_id = 0;
+  var HERO_SPEED = 300;
   scene("game", ({ level_id: level_id2 }) => {
     gravity(1600);
     const hero = add([
@@ -2970,6 +2971,14 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       z(16),
       health(100)
     ]);
+    onKeyDown("right", () => {
+      hero.flipX(true);
+      hero.move(HERO_SPEED, 0);
+    });
+    onKeyDown("left", () => {
+      hero.flipX(false);
+      hero.move(-HERO_SPEED, 0);
+    });
     hero.onUpdate(() => {
       camPos(hero.pos);
       if (hero.health <= 0) {

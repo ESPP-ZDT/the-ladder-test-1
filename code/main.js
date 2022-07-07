@@ -44,6 +44,17 @@ scene('game', ({level_id}) => {
     //body()
   ])
 
+  onKeyDown('right', () => {
+    hero.flipX(true)
+    hero.move(HERO_SPEED,0)
+  });
+  
+  onKeyDown('left', () => {
+    hero.flipX(false)
+    hero.move(-HERO_SPEED,0)
+  });
+
+
   
   hero.onUpdate(() =>{
       camPos(hero.pos)
@@ -53,6 +64,8 @@ scene('game', ({level_id}) => {
     })
 
   current_map = maps[level_id]
+
+  
   let levelcfg = {
     width:64,//width of all of the sprites on map  
     height:64,
