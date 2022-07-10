@@ -2955,7 +2955,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   });
   loadAssets();
   var level_id = 0;
-  var HERO_SPEED = 300;
+  var HERO_SPEED = 180;
   scene("game", ({ level_id: level_id2 }) => {
     gravity(1600);
     const hero = add([

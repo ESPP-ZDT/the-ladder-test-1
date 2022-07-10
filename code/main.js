@@ -21,9 +21,10 @@ loadAssets()
   //volume: 0.1
 //})
 //play('wuja theme')
+
 let level_id = 0
-const HERO_SPEED = 300 //hero movement speed variable
-const JUMP_SPEED = 600 //hero movement speed variable
+let HERO_SPEED = 180 //hero movement speed variable
+let JUMP_SPEED = 600 //hero movement speed variable
 
 
 scene('game', ({level_id}) => {
@@ -72,7 +73,7 @@ scene('game', ({level_id}) => {
     pos:vec2(0,0),
     'f': () =>[
       sprite('halafloor'),//floor sprite
-        'floor',
+        'floor',//will be used to trigger hero walking on floor sound
         area(scale(1,0.5)),
         solid(),
         z(2),
@@ -83,7 +84,7 @@ scene('game', ({level_id}) => {
   		sprite("ladder"),
   		area(),
   		origin("bot"),
-  		"ladder",
+  		"ladder",//will be used for hero going up and down the ladder sound
       scale(0.07),
   	  ],
   
